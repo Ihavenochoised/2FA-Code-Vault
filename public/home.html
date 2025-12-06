@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Secure 2FA Vault - Home</title>
+        <link rel="stylesheet" href="/css/shared.css">
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🔐 Secure 2FA Vault</h1>
+                <p>End-to-end encrypted backup code storage</p>
+            </div>
+            <div class="content">
+                <div class="hero">
+                    <h2>Secure Your Google Backup Codes</h2>
+                    <p>Store your Google 2FA backup codes with military-grade encryption. Access them anytime, anywhere.</p>
+                </div>
+                <div class="actions">
+                    <a href="/register" class="btn btn-primary">Create Account</a>
+                    <a href="/login" class="btn btn-secondary">Retrieve Code</a>
+                </div>
+                <div class="how-to-section">
+                    <h3>How It Works</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Generate Backup Codes</h4>
+                                <p>Go to your <a
+                                    href="https://myaccount.google.com/signinoptions/two-step-verification/backup-codes"
+                                    target="_blank">Google Account</a> and generate 10 backup codes.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Register & Encrypt</h4>
+                                <p>Create an account and paste your codes. They'll be encrypted with your master password
+                                    before being stored.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Retrieve When Needed</h4>
+                                <p>Login to retrieve one code at a time. Each code can only be accessed once for security.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="security-info">
+                    <h3>🔒 Security Features</h3>
+                    <ul>
+                        <li><strong>End-to-End Encryption:</strong> Your codes are encrypted on your device before being
+                            sent to the server
+                        </li>
+                        <li><strong>Zero-Knowledge:</strong> We never see your master password or unencrypted codes</li>
+                        <li><strong>Rate Limiting:</strong> 5-minute cooldown between code retrievals prevents abuse</li>
+                        <li><strong>One-Time Access:</strong> Each code can only be retrieved once</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <strong>⚠️ Important:</strong> Your master password cannot be recovered. If you forget it, you'll need
+                    to delete your account and register again. Keep it safe!
+                </div>
+                <div class="footer-links">
+                    <a href="/delete-account" class="link-danger">Delete Account</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

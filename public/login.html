@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Secure 2FA Vault</title>
+        <link rel="stylesheet" href="/css/shared.css">
+        <link rel="stylesheet" href="/css/form.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🔓 Retrieve Backup Code</h1>
+                <p>Access your encrypted backup codes</p>
+            </div>
+            <div class="content">
+                <div id="alertContainer"></div>
+                <!-- Login Form -->
+                <div id="loginForm">
+                    <div class="info-box">
+                        Enter your credentials to retrieve and decrypt your backup code. You can only retrieve one code at a time for security.
+                    </div>
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Master Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password">
+                    </div>
+                    <button class="btn btn-primary" id="loginBtn">Retrieve Backup Code</button>
+                    <a href="/" class="btn btn-secondary">Back to Home</a>
+                </div>
+                <!-- Code Display -->
+                <div id="codeDisplay" class="hidden">
+                    <div class="code-display-box">
+                        <h2 id="codeHeader">Your Backup Code</h2>
+                        <div class="code-display" id="retrievedCode">--------</div>
+                    </div>
+                    <div class="alert alert-warning">
+                        ⚠️ <strong>Security Notice:</strong> For security reasons, you cannot retrieve another code immediately. Wait before your next request.
+                    </div>
+                    <div class="info-box" id="codesRemainingInfo">
+                        <strong>Codes Remaining:</strong> <span id="codesRemainingCount">?</span> codes left in your vault.
+                    </div>
+                    <div class="info-box" style="margin-top: 10px;">
+                        <strong>Important:</strong> This code can only be used once with Google. Make sure to use it now, as you won't be able to retrieve the same code again.
+                    </div>
+                    <a href="/" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+        <script src="/javascript/login.js"></script>
+    </body>
+</html>

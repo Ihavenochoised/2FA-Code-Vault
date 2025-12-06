@@ -1,3 +1,6 @@
 {
-    "/": "pages/home/index.html"
+    "/": "home.html",
+    "/register": "register.html",
+    "/login": "login.html",
+    "/delete-account": "delete-account.html"
 }

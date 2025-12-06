@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Delete Account - Secure 2FA Vault</title>
+        <link rel="stylesheet" href="/css/shared.css">
+        <link rel="stylesheet" href="/css/form.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);">
+                <h1>⚠️ Delete Account</h1>
+                <p>Permanently remove your account and codes</p>
+            </div>
+            <div class="content">
+                <div id="alertContainer"></div>
+                <div class="alert alert-error">
+                    ⚠️ <strong>Warning:</strong> This action is permanent and cannot be undone!
+                </div>
+                <div class="info-box">
+                    If you've forgotten your password, your encrypted codes cannot be recovered due to end-to-end encryption. You can delete your account and register again with new backup codes.
+                </div>
+                <div class="form-group">
+                    <label for="resetUsername">Username</label>
+                    <input type="text" id="resetUsername" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="confirmUsername">Confirm Username</label>
+                    <input type="text" id="confirmUsername" placeholder="Type your username again to confirm">
+                </div>
+                <button class="btn btn-danger" id="deleteBtn">Delete Account Permanently</button>
+                <a href="/" class="btn btn-secondary">Cancel</a>
+            </div>
+        </div>
+        <script src="/javascript/delete-account.js"></script>
+    </body>
+</html>
