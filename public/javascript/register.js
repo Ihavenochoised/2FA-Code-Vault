@@ -119,7 +119,7 @@ async function register() {
             codeInputs.forEach(input => input.value = '');
             
             setTimeout(() => {
-                window.location.href = '/login';
+                window.location.href = '/';
             }, 2000);
         } else {
             showAlert(result.error || 'Registration failed', 'error');
