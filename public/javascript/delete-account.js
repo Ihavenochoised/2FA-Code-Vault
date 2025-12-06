@@ -46,7 +46,7 @@ async function resetAccount() {
             
             setTimeout(() => {
                 window.location.href = '/';
-            }, 2000);
+            }, 5000);
         } else {
             showAlert(result.error || 'Failed to delete account', 'error');
         }
