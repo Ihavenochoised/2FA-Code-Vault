@@ -77,9 +77,13 @@
 
 /* Override button margin for forms */
 .content .btn {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .content a.btn {
     text-decoration: none;
+}
+
+.content button.btn {
+    margin-bottom: 15px;
 }

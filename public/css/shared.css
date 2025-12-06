@@ -19,19 +19,19 @@ body {
     border-radius: 16px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    max-width: 500px;
+    max-width: 700px;
     width: 100%;
 }
 
 .header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 30px;
+    padding: 40px 30px;
     text-align: center;
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 8px;
 }
 
@@ -41,35 +41,7 @@ body {
 }
 
 .content {
-    padding: 30px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #333;
-    font-size: 14px;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #667eea;
+    padding: 40px 30px;
 }
 
 .btn {
@@ -81,6 +53,10 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+    text-decoration: none;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
 
 .btn:disabled {
@@ -101,44 +77,22 @@ body {
 .btn-secondary {
     background: #f5f5f5;
     color: #333;
-    margin-top: 10px;
+    border: 2px solid #e0e0e0;
 }
 
 .btn-secondary:hover {
     background: #e0e0e0;
 }
 
-.btn-link {
-    background: none;
-    color: #667eea;
-    text-decoration: underline;
-    padding: 8px;
-    font-size: 14px;
+.btn-danger {
+    background: #dc3545;
+    color: white;
 }
 
-.code-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.code-input-box {
-    position: relative;
-}
-
-.code-input-box label {
-    font-size: 11px;
-    color: #666;
-    margin-bottom: 4px;
-}
-
-.code-input-box input {
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-    letter-spacing: 2px;
-    font-family: 'Courier New', monospace;
+.btn-danger:hover:not(:disabled) {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
 }
 
 .alert {
@@ -172,35 +126,6 @@ body {
     border: 1px solid #bee5eb;
 }
 
-.hidden {
-    display: none;
-}
-
-.code-display-box {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.code-display-box h2 {
-    font-size: 16px;
-    margin-bottom: 15px;
-    opacity: 0.9;
-}
-
-.code-display {
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    font-family: 'Courier New', monospace;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 8px;
-}
-
 .info-box {
     background: #f8f9fa;
     border-left: 4px solid #667eea;
@@ -209,6 +134,7 @@ body {
     font-size: 13px;
     line-height: 1.6;
     color: #555;
+    margin-bottom: 20px;
 }
 
 .warning-box {
@@ -222,31 +148,16 @@ body {
     margin-bottom: 20px;
 }
 
-.loading {
-    text-align: center;
-    color: #667eea;
-    padding: 20px;
+.hidden {
+    display: none;
 }
 
-.tab-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+.link-danger {
+    color: #dc3545;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.tab-btn {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #e0e0e0;
-    background: white;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.tab-btn.active {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
+.link-danger:hover {
+    text-decoration: underline;
 }
