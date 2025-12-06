@@ -124,3 +124,21 @@
     text-align: center;
     margin-top: 20px;
 }
+
+.footer-links .link-danger {
+    color: #dc3545;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 2px solid #dc3545;
+    border-radius: 6px;
+    transition: all 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer-links .link-danger:hover {
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+}
