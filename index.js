@@ -3,6 +3,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import pageRouter from './routes/routes.js';
 import apiRouter, { initializeDatabase } from './routes/api.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
