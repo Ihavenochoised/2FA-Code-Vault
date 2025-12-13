@@ -50,10 +50,14 @@ function showAlert(message, type) {
     alertContainer.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
     setTimeout(() => {
         alertContainer.innerHTML = '';
-    }, 5000);
+    }, 3000);
 }
 
 let response = null;
+let currentUsername = null;
+let currentCodeIndex = null;
+const markUsedBtn = document.getElementById('markUsedBtn');
+if (markUsedBtn) markUsedBtn.classList.add('hidden');
 async function login() {
     const username = document.getElementById('loginUsername').value.trim();
     const password = document.getElementById('loginPassword').value;
@@ -85,20 +89,21 @@ async function login() {
                 document.getElementById('retrievedCode').textContent = decryptedCode;
                 
                 const totalCodes = result.totalCodes || 10;
-                const codesUsed = totalCodes - result.codesRemaining;
-                document.getElementById('codeHeader').textContent = `Code ${codesUsed}/${totalCodes}:`;
+                const codeIndex = typeof result.codeIndex === 'number' ? result.codeIndex : (totalCodes - result.codesRemaining - 1);
+                document.getElementById('codeHeader').textContent = `Code ${codeIndex + 1}/${totalCodes}:`;
                 document.getElementById('codesRemainingCount').textContent = result.codesRemaining;
 
-                // Debug, delete this on next commit
-                alert(codesUsed)
-
                 response = null;
-                
-                fetch(`${API_BASE}/code-used`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ code: codesUsed })
-                })
+
+                // Save context so we can mark the code used (button or unload)
+                currentUsername = username;
+                currentCodeIndex = codeIndex;
+
+                // Reveal the 'Mark as used' button now that the code is displayed
+                if (markUsedBtn) {
+                    markUsedBtn.classList.remove('hidden');
+                    markUsedBtn.disabled = false;
+                }
             } else {
                 showAlert('Incorrect password or corrupted data', 'error');
             }
@@ -118,3 +123,44 @@ document.getElementById('loginBtn').addEventListener('click', login);
 document.getElementById('loginPassword').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') login();
 });
+
+// Button handler to mark the current code as used and return home.
+if (markUsedBtn) {
+    markUsedBtn.addEventListener('click', async function() {
+    if (!currentUsername || typeof currentCodeIndex !== 'number') {
+        window.location.href = '/';
+        return;
+    }
+    try {
+        await fetch(`${API_BASE}/code-used`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: currentUsername, codeNumber: currentCodeIndex })
+        });
+    } catch (e) {
+        // If network fails, still redirect home.
+    }
+    currentCodeIndex = null; // prevent duplicate marking
+    currentUsername = null;
+    if (markUsedBtn) {
+        markUsedBtn.disabled = true;
+        markUsedBtn.classList.add('hidden');
+    }
+    window.location.href = '/';
+});
+
+// If the user closes the tab without marking the code as used, use sendBeacon to notify the server.
+window.addEventListener('beforeunload', function () {
+    if (!currentUsername || typeof currentCodeIndex !== 'number') return;
+    try {
+        const payload = JSON.stringify({ username: currentUsername, codeNumber: currentCodeIndex });
+        const blob = new Blob([payload], { type: 'application/json' });
+        navigator.sendBeacon(`${API_BASE}/code-used`, blob);
+        // Clear local state so it won't be re-sent if the page is navigated back to.
+        currentCodeIndex = null;
+        currentUsername = null;
+    } catch (e) {
+        // ignore
+    }
+    });
+}

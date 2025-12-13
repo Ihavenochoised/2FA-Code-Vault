@@ -120,7 +120,7 @@ async function register() {
             
             setTimeout(() => {
                 window.location.href = '/';
-            }, 5000);
+            }, 3000);
         } else {
             showAlert(result.error || 'Registration failed', 'error');
         }
